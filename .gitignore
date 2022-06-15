@@ -1,0 +1,5 @@
+.DS_Store
+
+# ignore challenge readme and mock-up
+Challenge-README.md
+Challenge-Assets/
