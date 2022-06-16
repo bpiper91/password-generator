@@ -1,10 +1,6 @@
 // Assignment Code  -- stores button element with id #generate
 var generateBtn = document.querySelector("#generate");
 
-
-
-
-
 // Global variable for desired password length -- default to 20
 var charLength = 20
 
@@ -15,8 +11,6 @@ var charTypes = {
   numeric: true,
   special: true
 };
-
-
 
 // Function to determine password length
 var getLength = function() {
@@ -95,7 +89,7 @@ var getTypesNum = function() {
 
 // Function to ask for numerical characters
 var getTypesSpecial = function() {
-  var typesSpecial = window.prompt("Do you want special characters in your password? Please enter YES or NO.");
+  var typesSpecial = window.prompt("Do you want special characters (e.g., !@#$%^) in your password? Please enter YES or NO.");
   typesSpecial = typesSpecial.toLowerCase()
   if (typesSpecial === "yes") {
     console.log("Special characters: YES");
@@ -124,7 +118,6 @@ var typesCheck = function () {
   console.log("Ready to generate password.");
 };
 
-
 // Function to generate password
 var generatePassword = function() {
   // Prompt for password length and character types and validate responses
@@ -151,23 +144,19 @@ var generatePassword = function() {
   };
   // add special characters to array
   if (charTypes.special) {
-    charList.push("!","@","#","$","%","^","&","*","?","~","+")
+    charList.push("!","@","#","$","%","^","&","*","?","~","+","/")
   };
-  // Now I have an array with all of the available characters
+  // Now charList array has all available characters
   
-  // For loop iterates over each character slot, choosing a random option from the array each time
-
-  var password = ""
-
+  var password = "" // Add random characters to this string one by one
+  // For loop iterates over each character slot in password string
   for (i=0; i < charLength; i++) {
-    randomChar = charList[Math.floor(Math.random() * charList.length)];
+    randomChar = charList[Math.floor(Math.random() * charList.length)]; // Workaround for choosing random array value
     var password = password + randomChar;
   };
+  console.log("Your suggested password is: " + password)
   return password;
 };
-
-
-
 
 // Write password to the #password input
 function writePassword() {
