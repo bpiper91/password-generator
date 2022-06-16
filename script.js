@@ -32,7 +32,7 @@ var getLength = function() {
   } else if (passwordLength > 128) {
     console.log("Password length was too many characters.");
     window.alert("Passwords must be no more than 128 characters.");
-    getLenth();
+    getLength();
   } else {
     console.log("Password length: " + passwordLength + " characters");
     charLength = passwordLength;
