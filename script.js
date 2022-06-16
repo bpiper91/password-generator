@@ -10,10 +10,10 @@ var charLength = 20
 
 // Object to store character types needed for password -- default to using all types
 var charTypes = {
-  lower: TRUE,
-  upper: TRUE,
-  numeric: TRUE,
-  special: TRUE
+  lower: true,
+  upper: true,
+  numeric: true,
+  special: true
 };
 
 
@@ -34,7 +34,7 @@ var getLength = function() {
     window.alert("Passwords must be no more than 128 characters.");
     getLenth();
   } else {
-    console.log("Password length: " + passwordLength + "characters");
+    console.log("Password length: " + passwordLength + " characters");
     charLength = passwordLength;
   };
 };
@@ -45,10 +45,10 @@ var getTypesLower = function() {
   typesLower = typesLower.toLowerCase()
   if (typesLower === "yes") {
     console.log("Lowercase letters: YES");
-    typesLower = TRUE;
+    typesLower = true;
   } else if (typesLower === "no") {
     console.log("Lowercase letters: NO");
-    typesLower = FALSE;
+    typesLower = false;
   } else {
     console.log("Lowercase response was not yes or no.");
     window.alert("Please enter YES or NO.");
@@ -63,10 +63,10 @@ var getTypesUpper = function() {
   typesUpper = typesUpper.toLowerCase()
   if (typesUpper === "yes") {
     console.log("Uppercase letters: YES");
-    typesUpper = TRUE;
+    typesUpper = true;
   } else if (typesUpper === "no") {
     console.log("Uppercase letters: NO");
-    typesUpper = FALSE;
+    typesUpper = false;
   } else {
     console.log("Uppercase response was not yes or no.");
     window.alert("Please enter YES or NO.");
@@ -81,10 +81,10 @@ var getTypesNum = function() {
   typesNum = typesNum.toLowerCase()
   if (typesNum === "yes") {
     console.log("Numbers: YES");
-    typesNum = TRUE;
+    typesNum = true;
   } else if (typesNum === "no") {
     console.log("Numbers: NO");
-    typesNum = FALSE;
+    typesNum = false;
   } else {
     console.log("Numbers response was not yes or no.");
     window.alert("Please enter YES or NO.");
@@ -95,14 +95,14 @@ var getTypesNum = function() {
 
 // Function to ask for numerical characters
 var getTypesSpecial = function() {
-  var typesSpecial = window.prompt("Do you want numbers in your password? Please enter YES or NO.");
+  var typesSpecial = window.prompt("Do you want special characters in your password? Please enter YES or NO.");
   typesSpecial = typesSpecial.toLowerCase()
   if (typesSpecial === "yes") {
     console.log("Special characters: YES");
-    typesSpecial = TRUE;
+    typesSpecial = true;
   } else if (typesSpecial === "no") {
     console.log("Special characters: NO");
-    typesSpecial = FALSE;
+    typesSpecial = false;
   } else {
     console.log("Special characters response was not yes or no.");
     window.alert("Please enter YES or NO.");
@@ -121,17 +121,50 @@ var typesCheck = function () {
     getTypesNum();
     getTypesSpecial();
   };
-  console.log("Character type issue resolved.");
+  console.log("Ready to generate password.");
 };
 
 
+// Function to generate password
+var generatePassword = function() {
+  // Prompt for password length and character types and validate responses
+  getLength();
+  getTypesLower();
+  getTypesUpper();
+  getTypesNum();
+  getTypesSpecial();
+  typesCheck();
 
+  // Create array of all possible characters
+  var charList = []; // declare empty array
+  // add lowercase letters to array
+  if (charTypes.lower) {
+    charList.push("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z")
+  };
+  // add uppercase letters to array
+  if (charTypes.upper) {
+    charList.push("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+  };
+  // add numerals to array
+  if (charTypes.numeric) {
+    charList.push("0","1","2","3","4","5","6","7","8","9")
+  };
+  // add special characters to array
+  if (charTypes.special) {
+    charList.push("!","@","#","$","%","^","&","*","?","~","+")
+  };
+  // Now I have an array with all of the available characters
+  
+  // For loop iterates over each character slot, choosing a random option from the array each time
 
+  var password = ""
 
-
-
-
-
+  for (i=0; i < charLength; i++) {
+    randomChar = charList[Math.floor(Math.random() * charList.length)];
+    var password = password + randomChar;
+  };
+  return password;
+};
 
 
 
