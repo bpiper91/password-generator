@@ -13,6 +13,8 @@ I was asked to build a password generator using Javascript that would suggest a 
 
 The code is neatly organized and commented for easy maintenance.
 
+_Note: the special characters I included are !@#$%^&*?~+/_
+
 ## Contact
 
 Brett Piper - <bpiper91@gmail.com>
