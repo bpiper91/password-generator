@@ -1,6 +1,6 @@
 # Password Generator
 
-![screenshot of the password generator](./assets/screenshot.JPG "Password Generator sample password suggestion")
+![screenshot of the password generator](./assets/images/screenshot.JPG "Password Generator sample password suggestion")
 *An example of a suggested password*
 
 ## The Challenge
