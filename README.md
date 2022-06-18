@@ -21,4 +21,4 @@ Brett Piper - <bpiper91@gmail.com>
 
 Deployed application: <https://bpiper91.github.io/password-generator>
 
-GitHub repo: <https://github.com/bpiper91>
+GitHub repo: <https://github.com/bpiper91/password-generator>
